@@ -1,0 +1,64 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
+
+# Build output
+build/
+dist/
+out/
+
+# Static build cache
+.cache/
+.next/
+.vite/
+
+# TailwindCSS
+tailwind.config.js
+tailwind.config.cjs
+postcss.config.js
+
+# Testing
+coverage/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Storybook
+.storybook/
+*.stories.*
+.storybook-static/
+
+# Miscellaneous
+*.bak
+*.orig
+*.log
