@@ -19,7 +19,8 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
     "react-tilt": "^1.0.2",
-    "react-vertical-timeline-component": "^3.6.0"
+    "react-vertical-timeline-component": "^3.6.0",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
