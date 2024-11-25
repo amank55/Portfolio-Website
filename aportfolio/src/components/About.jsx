@@ -6,6 +6,7 @@ import {motion} from 'framer-motion'
 import { styles } from '../styles'
 import {services} from '../constants'
 import {fadeIn, textVariant} from '../utils/motion'
+import { SectionWrapper } from '../hoc';
 
 const ServiceCard = ({index, title, icon}) => {
   return (
@@ -64,4 +65,4 @@ Feel free to explore my portfolio and join me as I navigate the ever-evolving wo
   )
 }
 
-export default About
+export default SectionWrapper(About, "about");

@@ -15,9 +15,8 @@ import {
     git,
     figma,
     docker,
-    meta,
-    starbucks,
-    tesla,
+    reactjsv,
+    frontendd,
     shopify,
     carrent,
     jobit,
@@ -50,7 +49,7 @@ import {
       icon: backend,
     },
     {
-      title: "Quick Learner",
+      title: "ReactJS Developer",
       icon: learner,
     },
     {
@@ -117,56 +116,38 @@ import {
   const experiences = [
     {
       title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
+      icon: reactjsv,
       iconBg: "#383E56",
       date: "March 2020 - April 2021",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+          "Built dynamic web applications, such as a responsive To-Do List application, leveraging reusable components and state management for seamless functionality",
+        "Optimized user experiences by applying responsive design principles, ensuring cross-device compatibility",
+"Maintained clean and scalable codebases by organizing project structures to enhance readability and scalability"
       ],
     },
     {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "Frontend Developer",
+      icon: frontendd,
       iconBg: "#E6DEDD",
       date: "Jan 2021 - Feb 2022",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Developed responsive user interfaces for projects like a Currency Converter and Background Changer, focusing on interactivity and user experience",
+"Built a Netflix Clone, replicating a modern, dynamic UI using HTML, CSS, and JavaScript to enhance design and functionality skills",
+"Integrated creative layouts and responsive designs to ensure cross-browser and cross-device compatibility for all frontend applications",
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
+      title: "Backend Developer",
       icon: shopify,
       iconBg: "#383E56",
       date: "Jan 2022 - Jan 2023",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Designed and implemented a Blogging Application, focusing on RESTful APIs and dynamic data handling to create a user-friendly content management system",
+"Built a URL Shortener service with efficient database integration to store and retrieve shortened URLs, ensuring high performance",
+"Enhanced backend performance through optimized API endpoints and middleware to deliver seamless functionality across applications",
       ],
     },
-    {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
-      iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
+   
   ];
   
   const testimonials = [
