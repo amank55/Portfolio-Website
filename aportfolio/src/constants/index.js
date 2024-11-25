@@ -1,8 +1,8 @@
 import {
-    mobile,
+  problem,
     backend,
-    creator,
-    web,
+    frontend,
+    learner,
     javascript,
     typescript,
     html,
@@ -42,22 +42,22 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "React Native Developer",
-      icon: mobile,
+      title: "Frontend Developer",
+      icon: frontend,
     },
     {
       title: "Backend Developer",
       icon: backend,
     },
     {
-      title: "Content Creator",
-      icon: creator,
+      title: "Quick Learner",
+      icon: learner,
     },
-  ];
+    {
+      title: "Problem Solver",
+      icon: problem,
+    },
+  ]    
   
   const technologies = [
     {
