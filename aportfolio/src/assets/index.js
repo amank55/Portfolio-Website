@@ -21,10 +21,10 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
+
+import backendd from "./company/backendd.avif";
 import reactjsv from "./company/react.avif";
-import frontendd from "./company/tesla.png";
+import frontendd from "./company/frontendd.avif";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -52,10 +52,10 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
+ 
+  backendd,
   reactjsv,
-  tesla,
+ frontendd,
   carrent,
   jobit,
   tripguide,

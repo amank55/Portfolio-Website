@@ -17,7 +17,7 @@ import {
     docker,
     reactjsv,
     frontendd,
-    shopify,
+    backendd,
     carrent,
     jobit,
     tripguide,
@@ -115,7 +115,7 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
+      title: " As An React.js Developer",
       icon: reactjsv,
       iconBg: "#383E56",
       date: "March 2020 - April 2021",
@@ -126,7 +126,7 @@ import {
       ],
     },
     {
-      title: "Frontend Developer",
+      title: " As An Frontend Developer",
       icon: frontendd,
       iconBg: "#E6DEDD",
       date: "Jan 2021 - Feb 2022",
@@ -137,8 +137,8 @@ import {
       ],
     },
     {
-      title: "Backend Developer",
-      icon: shopify,
+      title: " As An Backend Developer",
+      icon: backendd,
       iconBg: "#383E56",
       date: "Jan 2022 - Jan 2023",
       points: [
