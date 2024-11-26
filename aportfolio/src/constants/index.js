@@ -18,9 +18,9 @@ import {
     reactjsv,
     frontendd,
     backendd,
-    carrent,
-    jobit,
-    tripguide,
+    bloging,
+   Todolist,
+    Currency,
     threejs,
   } from "../assets";
   
@@ -179,67 +179,57 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Blogging Application",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+       "A web platform for creating, sharing, and managing blogs with ease, offering a user-friendly interface and secure backend for seamless content engagement.",
       tags: [
         {
-          name: "react",
+          name: "ejs",
           color: "blue-text-gradient",
         },
         {
           name: "mongodb",
           color: "green-text-gradient",
         },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: bloging,
+      source_code_link: "https://github.com/amank55",
     },
     {
-      name: "Job IT",
+      name: "Todolist",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
-          color: "green-text-gradient",
-        },
-        {
-          name: "scss",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: jobit,
-      source_code_link: "https://github.com/",
-    },
-    {
-      name: "Trip Guide",
-      description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "A simple web app for managing daily tasks efficiently, allowing users to add, update, and track their to-dos with an intuitive interface.",
       tags: [
         {
           name: "nextjs",
           color: "blue-text-gradient",
         },
-        {
-          name: "supabase",
-          color: "green-text-gradient",
-        },
+       
         {
           name: "css",
           color: "pink-text-gradient",
         },
       ],
-      image: tripguide,
-      source_code_link: "https://github.com/",
+      image: Todolist,
+      source_code_link: "https://github.com/amank55",
+    },
+    {
+      name: "Currency Convertor",
+      description:
+       "A web app for real-time currency conversion, enabling users to seamlessly calculate exchange rates between different currencies with an easy-to-use interface.",
+      tags: [
+        {
+          name: "nextjs",
+          color: "blue-text-gradient",
+        },
+        
+        {
+          name: "css",
+          color: "pink-text-gradient",
+        },
+      ],
+      image: Currency,
+      source_code_link: "https://github.com/amank55",
     },
   ];
   

@@ -26,9 +26,9 @@ import backendd from "./company/backendd.avif";
 import reactjsv from "./company/react.avif";
 import frontendd from "./company/frontendd.avif";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import bloging from "./bloging.avif";
+import Todolist from "./Todolist.avif";
+import Currency from "./Currency.jpg";
 
 export {
   logo,
@@ -56,7 +56,7 @@ export {
   backendd,
   reactjsv,
  frontendd,
-  carrent,
-  jobit,
-  tripguide,
+ bloging,
+  Todolist,
+  Currency,
 };
