@@ -32,18 +32,18 @@ const Contact = () => {
     setLoading(true);
 
     emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Aman",
-          from_email: form.email,
-          to_email: "amankwork2005@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
+    .send(
+      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        to_name: "Aman", // Only one "to_name" should be here
+        from_email: form.email,
+        to_email: "amankwork2005@gmail.com", // Only one "to_email" should be here
+        message: form.message,
+      },
+      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+    )
       .then(
         () => {
           setLoading(false);
