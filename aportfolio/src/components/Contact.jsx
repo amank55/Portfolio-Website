@@ -1,29 +1,22 @@
 import React, { useState, useCallback, Suspense } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { EarthCanvas } from "./canvas"; // Assuming EarthCanvas is your 3D canvas
+import { EarthCanvas } from "./canvas";
 import { slideIn } from "../utils/motion";
+import { memo } from "react";
 
-const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+const Contact = memo(() => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
 
-  // Optimized onChange handler
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   }, []);
 
-  // Form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       await emailjs.send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -37,11 +30,9 @@ const Contact = () => {
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
-
-      alert("Thank you! I will get back to you as soon as possible.");
       setForm({ name: "", email: "", message: "" });
+      alert("Thank you! I will get back to you as soon as possible.");
     } catch (error) {
-      console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -50,16 +41,13 @@ const Contact = () => {
 
   return (
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      {/* Form Section */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
         <p className="text-white font-medium mb-4">Get in touch</p>
         <h3 className="text-white text-3xl font-bold">Contact Me</h3>
-
         <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
-          {/* Name Input */}
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
             <input
@@ -72,8 +60,6 @@ const Contact = () => {
               required
             />
           </label>
-
-          {/* Email Input */}
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Email</span>
             <input
@@ -86,8 +72,6 @@ const Contact = () => {
               required
             />
           </label>
-
-          {/* Message Input */}
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
@@ -100,8 +84,6 @@ const Contact = () => {
               required
             />
           </label>
-
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -113,8 +95,6 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
-
-      {/* Earth Canvas Section */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
@@ -125,6 +105,6 @@ const Contact = () => {
       </motion.div>
     </div>
   );
-};
+});
 
 export default Contact;
