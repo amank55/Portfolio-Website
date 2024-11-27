@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
@@ -17,14 +17,11 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Handle form field changes
-  const handleChange = (e) => {
+  // Handle input changes efficiently using useCallback
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
-  };
+    setForm((prevForm) => ({ ...prevForm, [name]: value }));
+  }, []);
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -45,9 +42,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
       alert("Thank you! I will get back to you as soon as possible.");
-      setForm({ name: "", email: "", message: "" }); // Reset form
+      setForm({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -56,7 +53,7 @@ const Contact = () => {
 
   return (
     <div className="xl:mt-0 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      {/* Contact Form Section */}
+      {/* Contact Form */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -121,7 +118,7 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      {/* 3D Canvas Section */}
+      {/* 3D Canvas */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
@@ -133,3 +130,5 @@ const Contact = () => {
 };
 
 export default SectionWrapper(Contact, "contact");
+
+
