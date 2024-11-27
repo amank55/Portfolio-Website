@@ -6,6 +6,6 @@
     }
   ],
   "scripts": {
-    "build": "npm run build"
+    "build": "yarn run build"
   }
 }
