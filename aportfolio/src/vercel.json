@@ -1,13 +1,11 @@
 {
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "vite.config.js",
-        "use": "@vercel/static-build"
-      }
-    ]
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "scripts": {
+    "build": "npm run build"
   }
-  
+}
