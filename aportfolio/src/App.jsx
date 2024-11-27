@@ -1,4 +1,6 @@
 import { div } from "framer-motion/client"
+import React from 'react';
+
 import { BrowserRouter } from "react-router-dom"
 import {About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas} from "./components"
 
