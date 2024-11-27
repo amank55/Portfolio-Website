@@ -1,6 +1,7 @@
 import React, { useState, useCallback, Suspense } from "react";
+import { sendEmail } from "../utils/sendEmail";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+
 import { EarthCanvas } from "./canvas";
 import { slideIn } from "../utils/motion";
 import { memo } from "react";
@@ -13,31 +14,24 @@ const Contact = memo(() => {
     const { name, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   }, []);
+ // Import the utility function
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Aman",
-          from_email: form.email,
-          to_email: "amankwork2005@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      );
-      setForm({ name: "", email: "", message: "" });
-      alert("Thank you! I will get back to you as soon as possible.");
-    } catch (error) {
-      alert("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  
+  const result = await sendEmail(form);
+
+  if (result.success) {
+    alert("Message sent successfully!");
+    setForm({ name: "", email: "", message: "" });
+  } else {
+    alert(result.error || "Something went wrong.");
+  }
+
+  setLoading(false);
+};
+
 
   return (
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
