@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, Suspense } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { EarthCanvas } from "./canvas"; // Assuming EarthCanvas is your 3D canvas
@@ -13,16 +13,16 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Optimized onChange handler using useCallback to debounce re-renders
+  // Optimized onChange handler
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   }, []);
 
-  // Optimized async form submission
+  // Form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default browser submission
-    setLoading(true); // Show loading state
+    e.preventDefault();
+    setLoading(true);
 
     try {
       await emailjs.send(
@@ -39,12 +39,12 @@ const Contact = () => {
       );
 
       alert("Thank you! I will get back to you as soon as possible.");
-      setForm({ name: "", email: "", message: "" }); // Reset form
+      setForm({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again.");
     } finally {
-      setLoading(false); // End loading state
+      setLoading(false);
     }
   };
 
@@ -58,10 +58,7 @@ const Contact = () => {
         <p className="text-white font-medium mb-4">Get in touch</p>
         <h3 className="text-white text-3xl font-bold">Contact Me</h3>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
-        >
+        <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
           {/* Name Input */}
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -122,9 +119,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
-        <React.Suspense fallback={<div>Loading 3D Model...</div>}>
+        <Suspense fallback={<div>Loading 3D Model...</div>}>
           <EarthCanvas />
-        </React.Suspense>
+        </Suspense>
       </motion.div>
     </div>
   );
