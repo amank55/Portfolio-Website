@@ -1,14 +1,10 @@
-import React, { useRef, useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-
-import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
-import { SectionWrapper } from "../hoc";
+import { EarthCanvas } from "./canvas"; // Assuming EarthCanvas is your 3D canvas
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,16 +13,16 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // Handle input changes efficiently using useCallback
+  // Optimized onChange handler using useCallback to debounce re-renders
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   }, []);
 
-  // Handle form submission
+  // Optimized async form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault(); // Prevent default browser submission
+    setLoading(true); // Show loading state
 
     try {
       await emailjs.send(
@@ -41,28 +37,28 @@ const Contact = () => {
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
+
       alert("Thank you! I will get back to you as soon as possible.");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "" }); // Reset form
     } catch (error) {
       console.error("EmailJS error:", error);
       alert("Something went wrong. Please try again.");
     } finally {
-      setLoading(false);
+      setLoading(false); // End loading state
     }
   };
 
   return (
-    <div className="xl:mt-0 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      {/* Contact Form */}
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+      {/* Form Section */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className="text-white font-medium mb-4">Get in touch</p>
+        <h3 className="text-white text-3xl font-bold">Contact Me</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-8"
         >
@@ -74,8 +70,9 @@ const Contact = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your good name?"
+              placeholder="What's your name?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
             />
           </label>
 
@@ -87,8 +84,9 @@ const Contact = () => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your email address?"
+              placeholder="What's your email?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
             />
           </label>
 
@@ -96,12 +94,13 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
-              rows={7}
+              rows={5}
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="What would you like to say?"
+              placeholder="What do you want to say?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
+              required
             />
           </label>
 
@@ -118,17 +117,17 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      {/* 3D Canvas */}
+      {/* Earth Canvas Section */}
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
         className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
       >
-        <EarthCanvas />
+        <React.Suspense fallback={<div>Loading 3D Model...</div>}>
+          <EarthCanvas />
+        </React.Suspense>
       </motion.div>
     </div>
   );
 };
 
-export default SectionWrapper(Contact, "contact");
-
-
+export default Contact;
